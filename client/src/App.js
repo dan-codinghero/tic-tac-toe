@@ -28,6 +28,10 @@ function App() {
             socketService.socket.on('join-room:connected', (msg) => {
                 handleToastMessage(msg);
             });
+
+            socketService.socket.on('game:start', ({ isNext, isPlayerX }) => {
+                console.log('Game started');
+            });
         }
     }, [roomName]);
 
@@ -62,7 +66,8 @@ function App() {
         try {
             const socket = await socketService.connect();
 
-            await gameService.joinGameRoom(socket, room);
+            const msg = await gameService.joinGameRoom(socket, room);
+            console.log(msg);
             setRoomName(room);
         } catch (err) {
             console.log(err);

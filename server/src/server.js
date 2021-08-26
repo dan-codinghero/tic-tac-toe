@@ -1,15 +1,22 @@
 const express = require('express');
 const socket = require('socket.io');
 const dotenv = require('dotenv');
-
+const cors = require('cors');
 const registerRoomHandlers = require('./handlers/room-handler');
 const registerGameHandlers = require('./handlers/game-handler');
+
 const app = express();
 dotenv.config();
 const PORT = parseInt(process.env.PORT, 10) || 9000;
 app.use(express());
+
 const ALLOW_ORIGINS = process.env.ALLOW_ORIGINS || '*';
 
+app.use(
+    cors({
+        origin: ALLOW_ORIGINS,
+    })
+);
 const server = app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
 const io = socket(server, {
     cors: {

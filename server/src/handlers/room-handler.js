@@ -18,6 +18,7 @@ module.exports = (io, socket) => {
 
     const joinRoom = async (room) => {
         const connectedSockets = io.sockets.adapter.rooms.get(room);
+        console.log('player is joining', socket.id);
         if (connectedSockets?.size === 2) {
             console.log('Too many connections');
             socket.emit('join-room:error', {
@@ -25,11 +26,11 @@ module.exports = (io, socket) => {
             });
         } else {
             await socket.join(room);
-            // console.log({ socketAfterJoin: io.sockets.adapter.rooms.get(room) });
-            socket.to(room).emit('join-room:connected', 'Opponent connected to room!');
-            socket.emit('join-room:connected', 'Connected to room!');
+            console.log('join successful');
+
             socket.emit('join-room:success', 'Connected to room!');
             socket.emit('game:start', { isNext: false, isPlayerX: false });
+            socket.to(room).emit('join-room:connected', 'Opponent connected to room!');
             socket.to(room).emit('game:start', { isNext: true, isPlayerX: true });
         }
 

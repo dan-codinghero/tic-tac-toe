@@ -30,6 +30,7 @@ const OnlineGame = ({ socket, room = '', handleExitRoom, handleToastMessage }) =
     useEffect(() => {
         if (socket) {
             socket.on('game:start', ({ isNext, isPlayerX }) => {
+                console.log('Game started');
                 setIsPlayerTurn(isNext);
                 setHasGameStart(true);
                 setPlayer(isPlayerX ? PLAYER_X : PLAYER_O);
