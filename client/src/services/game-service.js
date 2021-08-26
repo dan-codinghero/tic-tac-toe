@@ -11,8 +11,8 @@ class GameService {
         return new Promise((resolve, reject) => {
             socket.emit('join-room', roomName);
             // socket.on('game:start', (message) => console.log(message));
-            socket.on('join-room:error', ({ message }) => reject(message));
-            socket.on('join-room:success', ({ message }) => resolve(message));
+            socket.on('join-room:error', (message) => reject(message));
+            socket.on('join-room:success', (message) => resolve(message));
         });
     }
 

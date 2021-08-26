@@ -25,9 +25,6 @@ function App() {
                 socketService.close();
                 setRoomName('');
             });
-            socketService.socket.on('join-room:connected', (msg) => {
-                handleToastMessage(msg);
-            });
 
             socketService.socket.on('game:start', ({ isNext, isPlayerX }) => {
                 console.log('Game started');

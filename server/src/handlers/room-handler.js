@@ -26,7 +26,7 @@ module.exports = (io, socket) => {
             });
         } else {
             await socket.join(room);
-            console.log('join successful');
+            console.log('join successful for ', socket.id);
 
             socket.emit('join-room:success', 'Connected to room!');
             socket.emit('game:start', { isNext: false, isPlayerX: false });
