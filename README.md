@@ -18,7 +18,7 @@ Download/Clone the project
 -   Client
 
     -   Create **.env.local** file in root directory of client folder and add the entries below  
-        REACT_APP_SOCKET_IO_SERVER = 'http://localhost:**PORT NUMBER FROM API**'
+        REACT_APP_SOCKET_IO_SERVER = 'http://localhost:**PORT-NUMBER-FROM-API**'
 
     -   Run **npm install**
     -   Run **npm start** to start project
