@@ -1,6 +1,10 @@
 # Tic-Tac-Toe - Coding Challenge.
 
-This repository contains source code for the classic Tic-Tac-Toe using socket.io to allow play online.
+This repository contains source code for the classic Tic-Tac-Toe using socket.io to allow online play.
+
+## Live site
+
+https://tic-tac-toe-coding-challenge.netlify.app/
 
 ## How to use
 
@@ -13,12 +17,12 @@ Download/Clone the project
         ALLOW_ORIGINS = "Configures requesting origin. Default '\*' if no value is provided"
 
     -   Run **npm install**
-    -   Run **npm start** to start project
+    -   Run **npm run dev-start** to start project
 
 -   Client
 
     -   Create **.env.local** file in root directory of client folder and add the entries below  
-        REACT_APP_SOCKET_IO_SERVER = 'http://localhost:**PORT-NUMBER-FROM-API**'
+        REACT_APP_SOCKET_IO_SERVER = 'http://localhost:PORT-NUMBER-FROM-API'
 
     -   Run **npm install**
     -   Run **npm start** to start project
