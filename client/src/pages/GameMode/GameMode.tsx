@@ -19,7 +19,7 @@ const GameMode: FC = () => {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center px-4">
             <div className="my-4 rounded-md border p-2 cursor-pointer" onClick={() => handleGameModeSelection(GameModeTypes.OFFLINE_FRIEND)}>
                 Play 2P
             </div>
